@@ -1,0 +1,105 @@
+/* 리셋, 색상 변수, 기본 타이포그래피 */
+
+:root {
+  color-scheme: light;
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --text: #1f2328;
+  --muted: #656d76;
+  --border: #d8dee4;
+  --accent: #2563eb;
+  --accent-soft: #e8f0fe;
+  --code-bg: #f3f4f6;
+
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "D2Coding", Menlo, Consolas, monospace;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --radius: 8px;
+  --content-width: 42rem;
+}
+
+/* data-theme가 없을 때(스크립트 미실행)는 OS 설정을 따른다 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --bg: #0f1419;
+    --bg-soft: #161b22;
+    --text: #e3e8ee;
+    --muted: #8b95a1;
+    --border: #2b3340;
+    --accent: #7aa7ff;
+    --accent-soft: #1b2a45;
+    --code-bg: #1a2029;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0f1419;
+  --bg-soft: #161b22;
+  --text: #e3e8ee;
+  --muted: #8b95a1;
+  --border: #2b3340;
+  --accent: #7aa7ff;
+  --accent-soft: #1b2a45;
+  --code-bg: #1a2029;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--accent);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  body {
+    transition: none;
+  }
+}
